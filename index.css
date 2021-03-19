@@ -1,0 +1,145 @@
+html, body { 
+    --color-1: #a8e6cf;
+    --color-2: #dcedc1; 
+    --color-3: #ffd3b6; 
+    --color-4: #ffaaa5; 
+    --color-5: #ff8b94;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    padding-top: 50px;
+    /* background-image: linear-gradient(135deg, var(--color-1) , var(--color-2)); */
+    background: #f7af9d;
+    font-family: "Nunito", sans-serif;
+    font-weight: 600;
+    height: 100vh;
+    color: black;
+    display: flex;
+}
+
+.container {
+    width: 400px;
+    text-align: center;
+    margin: auto;
+    background-color: white;
+    box-shadow: -2px 6px 18px 3px rgba(0,0,0,0.75);
+    padding: 50px;
+}
+
+.players {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.dice {
+    border-radius: 10px;
+    width: 100px;
+    height: 100px;
+    background-color: var(--color-3);
+    margin: 0 auto;
+    font-size: 80px;
+    display: block;
+    align-items: center;
+    justify-content: center;
+}
+
+
+button {
+    color: #fff;
+    padding: 20px 30px;
+    font-size: 20px;
+    margin: 40px auto;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#rollBtn {
+    /* background-color: var(--color-5); */
+    background-color: #c08497;
+}
+
+#rollBtn:hover, #rollBtn:focus {
+    background-color: #6d2e46;
+}
+
+#resetBtn {
+    /* background-color: var(--color-4); */
+    background-color: #427176;
+}
+
+#resetBtn:hover, #resetBtn:focus {
+    
+}
+
+button:focus {
+    outline: none;
+}
+
+#resetBtn {
+    display: none;
+}
+
+.active {
+    box-shadow: -2px 6px 18px 3px rgba(0,0,0,0.75);
+}
+
+#rollMessage {
+    margin-top: 50px;
+    font-size: 25px;
+}
+
+/* Dice Faces */
+.dice-face {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    background-color: #EFE5DC;
+    margin: 50px auto 20px auto;
+    display: grid;
+    /*grid-template: repeat(3, 1fr)/ repeat(3, 1fr) /*fr sets size as fraction of free space*/
+    grid-template-areas: 
+        "a . c"
+        "e g f"
+        "d . b";
+    cursor: pointer;
+}
+
+.dot {
+    width: 20px;
+    height: 20px;
+    border-radius: 15px;
+    background-color: black;   
+    margin: auto;
+}
+
+/* Placing the dots in the 3x3 grid. Thanks to Edwin Keijl for the tutorial on using 
+CSS grid for this functionality @ekeijl*/
+
+.dot:nth-child(2) {
+    grid-area: b;
+}
+
+.dot:nth-child(3) {
+    grid-area: c;
+}
+
+.dot:nth-child(4) {
+    grid-area: d;
+}
+
+.dot:nth-child(5) {
+    grid-area: e;
+}
+
+.dot:nth-child(6) {
+    grid-area: f;
+}
+
+/* This selects the last pip of odd-valued dice (1, 3, 5) and positions the pip in the center */
+.dot:nth-child(odd):last-child {
+	grid-area: g;
+}
